@@ -33,15 +33,15 @@ public class Fila implements IFila {
 	}
 
 	public int tamanho() {
-		return fim;
+		return fim+1;
 	}
 
 	public boolean estaVazia() {
 		return (fim == -1) ? true : false;
 	}
 
-	public boolean estaCheia() {
-		return (fim == tam) ? true : false;
+	public boolean estaCheia() { 
+		return (fim+1 == tam) ? true : false;
 	}
 
 	public void insereNaFila(Object obj) throws FilaCheiaException {
@@ -50,9 +50,12 @@ public class Fila implements IFila {
 	}
 
 	public Object removeDaFila() throws FilaVaziaException {
-		Object item = Fila[fim];
-		for(int k = 1; k < fim; k++)
+		Object item = Fila[0];
+		for(int k = 1; k < fim+1; k++) {
 			Fila[k-1] = Fila[k];
+		}
+		
+		fim--;
 		return item;
 	}
 
