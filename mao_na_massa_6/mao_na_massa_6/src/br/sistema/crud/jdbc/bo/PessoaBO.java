@@ -19,7 +19,7 @@ public class PessoaBO {
 		try {
 			pessoaDAO.inserir(pessoaDTO);
 		} catch(Exception exception) {
-			exception.printStackTrace();
+			exception.printStackTrace(); 
 			throw new NegocioException(exception.getMessage());
 		}
 	}

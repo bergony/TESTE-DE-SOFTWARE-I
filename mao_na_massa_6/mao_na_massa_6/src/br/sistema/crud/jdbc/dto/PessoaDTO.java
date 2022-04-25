@@ -11,7 +11,12 @@ public class PessoaDTO {
 	private Character sexo;
 	private Date dtNascimento;
 	private EnderecoDTO enderecoDTO;
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		PessoaDTO pessoaDTO = (PessoaDTO) obj;
+		return this.idPessoa == pessoaDTO.getIdPessoa();
+	}
 	
 	public Integer getIdPessoa() {
 		return idPessoa;
@@ -55,6 +60,8 @@ public class PessoaDTO {
 	public void setEnderecoDTO(EnderecoDTO enderecoDTO) {
 		this.enderecoDTO = enderecoDTO;
 	}
+	
+	
 	
 	
 	
