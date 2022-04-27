@@ -136,8 +136,8 @@ public class ContaCorrenteTest  {
 		ContaCorrente conta = new ContaCorrente("Your Name", 10000.0);
 		String expected = 
 			"Conta de Your Name\n" +
-			"Saldo Inicial $10000.0\n" +
-			"Saldo Final $10000.0\n" +
+			"Saldo Inicial $10000\n" +
+			"Saldo Final $10000\n" +
 			"Nenhuma trasacao realizada\n";
 		String extrato = conta.extrato();
 		
@@ -178,24 +178,23 @@ public class ContaCorrenteTest  {
 	 * LEMA DO TDD: RED BAR + GREEN BAR + REFATORAMENTO (QUANDO NECESSÁRIO)
 	 */
 	
-//	public void testProduceextratoWithMultipleDeposito() {
-//			String expected = 
-	
-//			"Conta de James Grenning\n" +
-//			"Saldo Inicial $0\n" +
-//			"Saldo Final $60000\n" +
-//			"2015-03-11\tDeposito\t$10000\n";	
-//			"2015-03-12\tDeposito\t$20000\n";	
-//			"2015-03-13\tDeposito\t$30000\n";	
-//			
-//			conta.creditar(new Deposito("2015-03-11", 10000));
-//			conta.creditar(new Deposito("2015-03-12", 20000));
-//			conta.creditar(new Deposito("2015-03-13", 30000));
-//		
-//		String extrato = conta.extrato();
-//		
-//		assertEquals(expected, extrato);
-//	}
+	@Test
+	public void testProduceextratoWithMultipleDeposito() {
+			String expected = "Conta de James Grenning\n" +
+			"Saldo Inicial $0\n" +
+			"Saldo Final $60000\n" +
+			"2015-03-11\tDeposito\t$10000\n" +	
+			"2015-03-12\tDeposito\t$20000\n" +	
+			"2015-03-13\tDeposito\t$30000\n";	
+			
+			conta.creditar(new Deposito("2015-03-11", 10000));
+			conta.creditar(new Deposito("2015-03-12", 20000));
+			conta.creditar(new Deposito("2015-03-13", 30000));
+		
+		String extrato = conta.extrato();
+		
+		assertEquals(expected, extrato);
+	}
 	
 	/*
 	 * Agora se quiser continue a implementar outros métodos pra esta classe 
