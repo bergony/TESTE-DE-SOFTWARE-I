@@ -93,7 +93,7 @@ public class PessoaBO {
 		} else if (enderecoDTO.getBairro() == null || enderecoDTO.getBairro().equals("")) {
 			ehValido = false;
 			throw new ValidacaoException("Bairro Obrigatorio");
-		} else if (enderecoDTO.getNumero() == null || enderecoDTO.getNumero().equals(0)) {
+		} else if (enderecoDTO.getNumero() == null || enderecoDTO.getNumero().equals(0l)) {
 			ehValido = false;
 			throw new ValidacaoException("Numero Obrigatorio");
 		}else if (enderecoDTO.getCep() == null || enderecoDTO.getCep().equals(0)) {
