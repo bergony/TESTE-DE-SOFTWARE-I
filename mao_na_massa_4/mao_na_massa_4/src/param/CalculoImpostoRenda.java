@@ -12,7 +12,11 @@ public class CalculoImpostoRenda {
 	 * 
 	 * @param valor
 	 */
-	public static double calculaImposto(double valor) {
+	public static double calculaImposto(double valor) throws ValorInvalidExection {
+		
+		if(valor <= 0) {
+			throw new ValorInvalidExection();
+		}
 		// Declaração de Variáveis
 		double imposto;
 		double impostotot;
@@ -34,6 +38,11 @@ public class CalculoImpostoRenda {
 	}
 
 	public static void main(String[] args) {
-		calculaImposto(10000);
+		try {
+			calculaImposto(10000);
+		} catch (ValorInvalidExection e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -24,12 +24,24 @@ public class CalculoImpostoRendaTest extends CalculoImpostoRenda {
 	 @Parameters
 	 public static Iterable<Object[]> data() {
 	 return Arrays.asList(new Object[][] { 
-	 { 200, 200 }, { 2000, 2200 }, { 10000, 11500 }, { 20000, 24000 } });
+	 { 200, 200 }, 
+	 { 2000, 2200 }, 
+	 { 10000, 11500 }, 
+	 { 20000, 24000 },
+	 { 0, 0 },
+	 { -1, -1 }
+	 
+	 });
 	 }
-
+	 
 	@Test
 	public void verificar() {
 		assertEquals(esperado, CalculoImpostoRenda.calculaImposto(entrada), 0);
+	}
+	
+	@Test
+	public void verificarInvalido() {
+		assertEquals(esperado, CalculoImpostoRenda.calculaImposto(-20000L), 0);
 	}
 
 }
