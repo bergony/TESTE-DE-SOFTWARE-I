@@ -68,6 +68,50 @@ public class ContaTest {
 	}
 	
 	
+	@Test
+	public void verificarSemDebito() throws OperacaoIlegalException {
+		
+		try {
+			pagar.debitar(11);
+			fail("Falho a verificar saldo insuficiente");
+		} catch (OperacaoIlegalException e) {
+
+			var expectedException =
+				      assertThrows(
+				    	  OperacaoIlegalException.class,
+				          () -> {
+				            throw new OperacaoIlegalException();
+				          });
+			assertEquals(receber.getSaldo(), 20, 0);
+			assertEquals(pagar.getSaldo(), 10, 0);
+			  assertEquals(e.getMessage(), expectedException.getMessage());
+		}  
+	}
+	
+	@Test
+	public void verificarSemDebitoSaldo() throws OperacaoIlegalException {
+		
+		try {
+			
+			Conta contaVazia = new Conta("2", 0);
+			contaVazia.debitar(2);
+			contaVazia.debitar(-1);
+			fail("Falho a verificar saldo insuficiente");
+		} catch (OperacaoIlegalException e) {
+
+			var expectedException =
+				      assertThrows(
+				    	  OperacaoIlegalException.class,
+				          () -> {
+				            throw new OperacaoIlegalException();
+				          });
+			assertEquals(receber.getSaldo(), 20, 0);
+			assertEquals(pagar.getSaldo(), 10, 0);
+			  assertEquals(e.getMessage(), expectedException.getMessage());
+		}  
+	}
+	
+	
 	
 
 

@@ -1,6 +1,8 @@
 package fila;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +20,9 @@ public class FilaTest {
 	@Test
 	public void inserirNaFila() {
 
+		
+		Fila fila2 = new Fila();
+		
 		Object obj = new Object();
 		
 		fila.insereNaFila(obj);
@@ -115,10 +120,39 @@ public class FilaTest {
 		assertEquals(filaTeste.getTam(), 5);
 		filaTeste.setFim(1);
 		assertEquals(filaTeste.getFim(), 1l);
+	}
+	
+	@Test	
+	public void filaCheiaThrow() {
+		try {
+			Fila filaTeste = new Fila();
+			Object obj = new Object();
+			Object obj2 = new Object();
+			Object obj3 = new Object();
+			Object obj4 = new Object();
+			Object obj5 = new Object();
+			Object obj6 = new Object();
+			
+			
+			filaTeste.insereNaFila(obj);
+			filaTeste.insereNaFila(obj2);
+			filaTeste.insereNaFila(obj3);
+			filaTeste.insereNaFila(obj4);
+			filaTeste.insereNaFila(obj5);
+			filaTeste.insereNaFila(obj5);
+			
+		} catch (FilaCheiaException e) {
 
+			var expectedException =
+				      assertThrows(
+				    		  FilaCheiaException.class,
+				          () -> {
+				            throw new FilaCheiaException();
+				          });
+			  assertEquals(e.getMessage(), expectedException.getMessage());
+		} 
 		
 		
-
 	}
 	
 	
