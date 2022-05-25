@@ -21,7 +21,7 @@ public class DateTest {
 	}
 
 	@Test
-	public void testAddDias() throws InvalidDateException {
+	public void testAddDiasValido() throws InvalidDateException {
 		Date old = new Date(22,07,2022);
 		String dataOld = old.toString();
 		Date.addDias(data, 2);
@@ -31,8 +31,24 @@ public class DateTest {
 	}
 
 	@Test
-	public void testAnteriorData() {
-		fail("Not yet implemented");
+	public void testAddDiasInvalidaNUll() throws InvalidDateException {
+		try {
+			
+			data = null;
+			Date.addDias(data, 2);
+			fail("Data null sendo incrementada");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	@Test
+	public void testDataAnteriorValido() throws InvalidDateException {
+		Date old = new Date(19,07,2022);
+		String dataOld = old.toString();
+		String dataNew = data.anteriorData().toString();
+		
+		assertEquals(dataOld, dataNew);
 	}
 
 	@Test

@@ -1,6 +1,10 @@
-Restriocoes                 | Classe validas            | Classe Invalidas
+Questão 1
+A)
+Restrições 		    | Classe validas            | Classe Invalidas
 Double                      | True                      | False
 Tipo Tabulerio Valor < 200  | 1 <= valor <= 200         | valor > 200 ou valor < 1
 TIPO STREAM                 | valor = valor             | valor != valor
 Tipo DVD  Valor < 100       |  1 <= valor <= 100        | valor > 100 ou valor < 1
 Tipo DVD  Valor > 100       |  1 <= valor <= 100        | valor > 100 ou valor < 1
+
+B) e C) Estão no pacote game.

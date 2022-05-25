@@ -1,0 +1,11 @@
+
+Campos 	| Classe Validas | Classes Invalidos
+dia	| 1 <= dia < 30	 | dia < 1 	 
+	| 1 <= dia <= 29 | dia diferente de int.
+	| 1 <= dia <= 31 | dia > 31
+mes	| 1 <= mes <= 12 | mes < 1
+   	|		 | mes > 12
+ano	| 
+formato	|
+
+
